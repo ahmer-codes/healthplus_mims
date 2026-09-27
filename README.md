@@ -25,3 +25,6 @@ npm run build
 ## Environment
 
 Copy `.env.example` to `.env.local` when wiring Firebase. Persistence is intentionally not implemented in this foundation phase.
+
+
+Deployed on https://healthplus-mims.vercel.app/
