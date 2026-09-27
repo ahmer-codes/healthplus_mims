@@ -1,0 +1,288 @@
+/**
+ * HealthPlus Medicine Inventory: design tokens
+ *
+ * Character: serious healthcare operations, refined and precise. not boring.
+ * Red is strategic (brand, primary actions, selection), never decorative wash.
+ */
+
+@theme {
+  /* -- Primary (HealthPlus red) -- */
+  --color-primary: #c41e3a;
+  --color-primary-hover: #a81932;
+  --color-primary-active: #91152c;
+  --color-primary-subtle: #fdf0f2;
+  --color-primary-muted: #f8d5db;
+  --color-primary-foreground: #ffffff;
+
+  /* Brand scale (maps to primary) */
+  --color-brand-50: #fdf0f2;
+  --color-brand-100: #f8d5db;
+  --color-brand-200: #f0aab6;
+  --color-brand-300: #e57a8d;
+  --color-brand-400: #d64562;
+  --color-brand-500: #c41e3a;
+  --color-brand-600: #a81932;
+  --color-brand-700: #91152c;
+  --color-brand-800: #7a1427;
+  --color-brand-900: #5f1221;
+  --color-brand: #c41e3a;
+
+  /* -- Surfaces -- */
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-surface-muted: #f6f5f4;
+  --color-surface-subtle: #eeedeb;
+  --color-surface-sunken: #e8e7e5;
+
+  /* -- Borders -- */
+  --color-border: #e2e0dd;
+  --color-border-strong: #cbc8c4;
+  --color-border-subtle: #ebeae8;
+
+  /* -- Ink / text -- */
+  --color-ink: #1c1f26;
+  --color-ink-secondary: #3f4553;
+  --color-ink-muted: #5c6573;
+  --color-ink-faint: #6e7585;
+  --color-ink-inverse: #f8f7f6;
+
+  /* -- Medical neutrals (sidebar / chrome) -- */
+  --color-chrome: #16191f;
+  --color-chrome-elevated: #1e222a;
+  --color-chrome-hover: #262b35;
+  --color-chrome-border: #2c323d;
+  --color-chrome-muted: #a8b0bd;
+  --color-chrome-faint: #8b93a3;
+
+  /* -- Semantic -- */
+  --color-success: #1a7a4c;
+  --color-success-hover: #156640;
+  --color-success-subtle: #eaf6f0;
+  --color-success-bg: #eaf6f0;
+
+  --color-warning: #a85a0a;
+  --color-warning-hover: #8f4c08;
+  --color-warning-subtle: #fff6e9;
+  --color-warning-bg: #fff6e9;
+
+  --color-danger: #c41e3a;
+  --color-danger-hover: #a81932;
+  --color-danger-subtle: #fdf0f2;
+  --color-danger-bg: #fdf0f2;
+
+  --color-info: #1a5f8a;
+  --color-info-hover: #154f73;
+  --color-info-subtle: #eef5fa;
+  --color-info-bg: #eef5fa;
+
+  --color-neutral: #5c6474;
+  --color-neutral-subtle: #f0f1f3;
+
+  /* -- Layout -- */
+  --sidebar-width: 17rem;
+  --sidebar-collapsed-width: 4.25rem;
+  --header-height: 4rem;
+  --content-max: 80rem;
+
+  /* -- Spacing rhythm (4px base) -- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* -- Radius -- */
+  --radius-sm: 0.3125rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.875rem;
+
+  /* -- Typography -- */
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Instrument Sans', 'DM Sans', ui-sans-serif, sans-serif;
+
+  /* -- Elevation (restrained) -- */
+  --shadow-sm: 0 1px 2px rgb(28 31 38 / 0.04);
+  --shadow-md: 0 2px 10px rgb(28 31 38 / 0.06), 0 1px 2px rgb(28 31 38 / 0.04);
+  --shadow-lg: 0 8px 24px rgb(28 31 38 / 0.08), 0 2px 6px rgb(28 31 38 / 0.04);
+  --shadow-drawer: 4px 0 24px rgb(28 31 38 / 0.12);
+
+  /* -- Motion -- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration-fast: 140ms;
+  --duration-normal: 220ms;
+  --duration-slow: 320ms;
+}
+
+:root {
+  --color-primary: #c41e3a;
+  --color-primary-hover: #a81932;
+  --color-primary-active: #91152c;
+  --color-primary-subtle: #fdf0f2;
+  --color-primary-muted: #f8d5db;
+  --color-brand: #c41e3a;
+  --color-brand-hover: #a81932;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f5f4;
+  --color-surface-raised: #ffffff;
+  --color-surface-subtle: #eeedeb;
+  --color-surface-sunken: #e8e7e5;
+  --color-border: #e2e0dd;
+  --color-border-strong: #cbc8c4;
+  --color-border-subtle: #ebeae8;
+  --color-ink: #1c1f26;
+  --color-ink-secondary: #3f4553;
+  --color-ink-muted: #5c6573;
+  --color-ink-faint: #6e7585;
+  --color-ink-inverse: #f8f7f6;
+  --color-chrome: #16191f;
+  --color-chrome-elevated: #1e222a;
+  --color-chrome-hover: #262b35;
+  --color-chrome-border: #2c323d;
+  --color-chrome-muted: #a8b0bd;
+  --color-chrome-faint: #8b93a3;
+  --color-success: #1a7a4c;
+  --color-success-subtle: #eaf6f0;
+  --color-warning: #a85a0a;
+  --color-warning-subtle: #fff6e9;
+  --color-danger: #c41e3a;
+  --color-danger-subtle: #fdf0f2;
+  --color-info: #1a5f8a;
+  --color-info-subtle: #eef5fa;
+  --color-neutral: #5c6474;
+  --color-neutral-subtle: #f0f1f3;
+  --color-brand-100: #f8d5db;
+  --color-brand-200: #f0aab6;
+  --color-brand-400: #d64562;
+  --color-brand-700: #91152c;
+  --sidebar-width: 17rem;
+  --sidebar-collapsed-width: 4.25rem;
+  --header-height: 4rem;
+
+  /*
+   * Header-only palette (clinical night + brand + teal).
+   * Used as layered mesh — not a flat fill.
+   */
+  --header-ink: #f4f6fa;
+  --header-ink-muted: #b8c2d4;
+  --header-ink-faint: #9aa6bc;
+  --header-divider: rgb(255 255 255 / 0.12);
+  --header-chip: rgb(255 255 255 / 0.07);
+  --header-chip-hover: rgb(255 255 255 / 0.12);
+  --header-chip-border: rgb(255 255 255 / 0.14);
+  --header-search-bg: rgb(8 12 22 / 0.45);
+  --header-search-border: rgb(255 255 255 / 0.14);
+  --header-brand: #e85a6f;
+  --header-teal: #3d9aad;
+  --header-navy: #141c2e;
+  --header-slate: #1c2740;
+  --header-midnight: #0e1422;
+  --header-mesh:
+    radial-gradient(120% 180% at 0% 0%, rgb(196 30 58 / 0.38) 0%, transparent 42%),
+    radial-gradient(90% 140% at 78% -20%, rgb(61 154 173 / 0.28) 0%, transparent 45%),
+    radial-gradient(70% 120% at 100% 120%, rgb(90 120 200 / 0.12) 0%, transparent 50%),
+    linear-gradient(105deg, var(--header-midnight) 0%, var(--header-navy) 42%, var(--header-slate) 100%);
+
+  color-scheme: light;
+}
+
+html.dark {
+  --color-primary: #e85a6f;
+  --color-primary-hover: #f07889;
+  --color-primary-active: #f0aab6;
+  --color-primary-subtle: #2a1519;
+  --color-primary-muted: #3a1a22;
+  --color-brand: #e85a6f;
+  --color-brand-hover: #f07889;
+  --color-surface: #161a21;
+  --color-surface-muted: #0f1217;
+  --color-surface-raised: #1c2129;
+  --color-surface-subtle: #242a34;
+  --color-surface-sunken: #0c0e12;
+  --color-border: #2f3642;
+  --color-border-strong: #4a5363;
+  --color-border-subtle: #262c36;
+  /* Text: tuned for WCAG AA on dark surfaces */
+  --color-ink: #f2f4f8;
+  --color-ink-secondary: #d2d7e0;
+  --color-ink-muted: #b4bcc9;
+  --color-ink-faint: #9aa3b2;
+  --color-ink-inverse: #0f1217;
+  --color-chrome: #0a0c0f;
+  --color-chrome-elevated: #12151a;
+  --color-chrome-hover: #1a1e25;
+  --color-chrome-border: #2a303a;
+  --color-chrome-muted: #b4bcc9;
+  --color-chrome-faint: #9aa3b2;
+  --color-success: #3dba7a;
+  --color-success-hover: #52c98a;
+  --color-success-subtle: #13261c;
+  --color-success-bg: #13261c;
+  --color-warning: #e0a04a;
+  --color-warning-hover: #ebb05e;
+  --color-warning-subtle: #2a2010;
+  --color-warning-bg: #2a2010;
+  --color-danger: #e85a6f;
+  --color-danger-hover: #f07889;
+  --color-danger-subtle: #2a1519;
+  --color-danger-bg: #2a1519;
+  --color-info: #5aa8d4;
+  --color-info-hover: #6eb6dc;
+  --color-info-subtle: #121c24;
+  --color-info-bg: #121c24;
+  --color-neutral: #a8b0bd;
+  --color-neutral-subtle: #1c2129;
+  --color-brand-50: #2a1519;
+  --color-brand-100: #3a1a22;
+  --color-brand-200: #5a2834;
+  --color-brand-300: #8a3d4e;
+  --color-brand-400: #e85a6f;
+  --color-brand-500: #e85a6f;
+  --color-brand-600: #f07889;
+  --color-brand-700: #f0aab6;
+  --color-brand-800: #f5c5ce;
+  --color-brand-900: #fae0e5;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-md: 0 2px 10px rgb(0 0 0 / 0.4), 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.45), 0 2px 6px rgb(0 0 0 / 0.3);
+
+  --header-ink: #f6f8fc;
+  --header-ink-muted: #b0bacd;
+  --header-ink-faint: #8894ab;
+  --header-divider: rgb(255 255 255 / 0.1);
+  --header-chip: rgb(255 255 255 / 0.06);
+  --header-chip-hover: rgb(255 255 255 / 0.11);
+  --header-chip-border: rgb(255 255 255 / 0.12);
+  --header-search-bg: rgb(0 0 0 / 0.35);
+  --header-search-border: rgb(255 255 255 / 0.12);
+  --header-brand: #f07889;
+  --header-teal: #4eb0c2;
+  --header-navy: #101828;
+  --header-slate: #182235;
+  --header-midnight: #0a0e18;
+  --header-mesh:
+    radial-gradient(120% 180% at 0% 0%, rgb(232 90 111 / 0.32) 0%, transparent 42%),
+    radial-gradient(90% 140% at 78% -20%, rgb(78 176 194 / 0.22) 0%, transparent 45%),
+    radial-gradient(70% 120% at 100% 120%, rgb(100 130 210 / 0.1) 0%, transparent 50%),
+    linear-gradient(105deg, var(--header-midnight) 0%, var(--header-navy) 42%, var(--header-slate) 100%);
+
+  color-scheme: dark;
+}
+
+html[data-density='compact'] {
+  --header-height: 3.75rem;
+}
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

@@ -1,0 +1,3 @@
+# Private hospital inventory app — not intended for public indexing.
+User-agent: *
+Disallow: /

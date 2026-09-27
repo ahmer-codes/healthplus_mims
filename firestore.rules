@@ -1,0 +1,103 @@
+rules_version = '2';
+
+/**
+ * HealthPlus Medicine Inventory — Firestore security rules.
+ *
+ * Bootstrap-friendly: any signed-in user may read/write operational data.
+ * Role checks remain for user-profile administration.
+ * Tighten isInventoryWriter later once multi-user roles are production-ready.
+ */
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function hasUserDoc() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function role() {
+      return hasUserDoc() ? userDoc().role : null;
+    }
+
+    function hasRole(roles) {
+      return hasUserDoc() && role() in roles;
+    }
+
+    function isAdmin() {
+      return hasRole(['admin']);
+    }
+
+    // Signed-in operators can manage inventory during hospital rollout.
+    function isInventoryWriter() {
+      return isSignedIn();
+    }
+
+    function isStaffOrAbove() {
+      return isSignedIn();
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow create: if isSignedIn()
+        && request.auth.uid == userId
+        && request.resource.data.role in ['admin', 'pharmacist', 'staff'];
+      allow update: if isSignedIn()
+        && request.auth.uid == userId
+        && (
+          !('role' in request.resource.data)
+          || request.resource.data.role == resource.data.role
+          || isAdmin()
+        );
+      allow delete: if isAdmin();
+    }
+
+    match /medicines/{id} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isInventoryWriter();
+    }
+
+    match /locations/{id} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isInventoryWriter();
+    }
+
+    match /medicineBatches/{id} {
+      allow read: if isSignedIn();
+      allow write: if isInventoryWriter();
+    }
+
+    match /stockIns/{id} {
+      allow read: if isSignedIn();
+      allow write: if isInventoryWriter();
+    }
+
+    match /allocations/{id} {
+      allow read: if isSignedIn();
+      allow write: if isInventoryWriter();
+    }
+
+    match /stockTransfers/{id} {
+      allow read: if isSignedIn();
+      allow write: if isInventoryWriter();
+    }
+
+    match /contacts/{id} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAbove();
+    }
+
+    match /medicineDemands/{id} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAbove();
+    }
+  }
+}
