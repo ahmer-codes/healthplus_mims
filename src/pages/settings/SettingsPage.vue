@@ -29,8 +29,8 @@ const themeOptions = [
 ]
 
 const densityOptions = [
-  { label: 'Comfortable', value: 'comfortable' },
-  { label: 'Compact', value: 'compact' },
+  { label: 'Comfortable (125%)', value: 'comfortable' },
+  { label: 'Compact (100%)', value: 'compact' },
 ]
 
 onMounted(() => {
@@ -88,7 +88,7 @@ function onDensity(value: string) {
         <section class="surface-panel p-5 space-y-4">
           <SectionHeader
             title="Appearance"
-            description="Theme and layout density for day/night dispensary shifts."
+            description="Theme and size. Comfortable zooms the whole UI to 125%; Compact stays at normal size."
           />
           <div class="grid gap-3 sm:grid-cols-2">
             <AppSelect

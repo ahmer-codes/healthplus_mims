@@ -274,8 +274,26 @@ html.dark {
   color-scheme: dark;
 }
 
+/*
+ * Density:
+ * - compact  = current normal size (100%)
+ * - comfortable = everything scaled up 125%
+ */
 html[data-density='compact'] {
+  zoom: 1;
   --header-height: 3.75rem;
+}
+
+html[data-density='comfortable'] {
+  zoom: 1.25;
+  --header-height: 4rem;
+}
+
+/* Fallback when zoom is unsupported (scales rem-based UI) */
+@supports not (zoom: 1) {
+  html[data-density='comfortable'] {
+    font-size: 125%;
+  }
 }
 
 html.reduce-motion *,

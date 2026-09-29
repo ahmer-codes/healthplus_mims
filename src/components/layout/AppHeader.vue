@@ -7,7 +7,6 @@ import {
   PanelLeftOpen,
   Search,
   Settings,
-  UserRound,
   X,
 } from '@lucide/vue'
 import { nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
@@ -318,15 +317,6 @@ onUnmounted(() => {
             {{ user?.email ?? 'Not signed in' }}
           </p>
         </div>
-        <button
-          type="button"
-          role="menuitem"
-          class="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-ink-secondary transition-colors hover:bg-surface-muted"
-          @click="close(); void goSettings()"
-        >
-          <UserRound class="size-3.5 text-ink-muted" aria-hidden="true" />
-          Profile
-        </button>
         <button
           type="button"
           role="menuitem"
